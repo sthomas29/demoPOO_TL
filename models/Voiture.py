@@ -40,7 +40,26 @@ class Voiture :
         else:
             self.__kilometrage = kilometrage
 
+    def rouler(self, kilometrage) :
+        """
+            Le code commenté ci-dessous est supprimable, car ces contrôles sont déjà réalisés
+            dans la méthode 'self.kilometrage exécutée L56
+        """
+        #if not isinstance(kilometrage, int) :
+        #    raise TypeError("Kilométrage doit être un entier") # Exception (erreur maitrisée)
 
+        #if kilometrage <= 0 :
+        #    raise ValueError(f"Impossible de réduire le kilométrage à {kilometrage}") # Exception (erreur maitrisée)
+
+        #self.__kilometrage = self.__kilometrage + kilometrage
+
+        self.kilometrage= self.__kilometrage + kilometrage
+
+    def freiner(self):
+        pass
+
+    def arreter(self):
+        pass
 
     # Redéfinir la fonction __str__() pour la classe Voiture
     def __str__(self) :

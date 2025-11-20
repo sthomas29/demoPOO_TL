@@ -22,7 +22,11 @@ print(clio.kilometrage)
 clio.kilometrage=150
 
 print(clio.kilometrage)
-
 print(clio.modele)
+print(clio)
 
+clio.rouler(200)
+print(clio)
+
+clio.rouler(-250)
 print(clio)
