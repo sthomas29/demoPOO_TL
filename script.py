@@ -13,10 +13,11 @@ clio = Voiture("Renault","Clio")
 
 print(clio)
 
-print(clio.get_marque())
-print(clio.get_modele())
-print(clio.get_kilometrage())
+print(clio.marque)
+print(clio.kilometrage)
 
 clio.set_kilometrage(50)
 
-print(clio.get_kilometrage())
+print(clio.kilometrage)
+
+print(clio.modele)

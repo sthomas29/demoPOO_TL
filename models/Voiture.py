@@ -15,15 +15,19 @@ class Voiture :
         print("Je crée une instance de voiture.")
 
     """
-        Création des accesseurs (GET/SET) pour les attributs de l'instance de voiture
+        Accesseur via le décorateur @property
     """
-    def get_modele(self) :
+
+    @property
+    def modele(self):
         return self.__modele
 
-    def get_marque(self):
+    @property
+    def marque(self):
         return self.__marque
 
-    def get_kilometrage(self):
+    @property
+    def kilometrage(self):
         return self.__kilometrage
 
     def set_kilometrage(self, kilometrage) :
