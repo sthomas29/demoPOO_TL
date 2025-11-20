@@ -30,8 +30,17 @@ class Voiture :
     def kilometrage(self):
         return self.__kilometrage
 
-    def set_kilometrage(self, kilometrage) :
-        self.__kilometrage = kilometrage
+    @kilometrage.setter
+    def kilometrage(self, kilometrage) :
+        if not isinstance(kilometrage, int) :
+            raise TypeError("Kilométrage doit être un entier") # Exception (erreur maitrisée)
+
+        if kilometrage <= self.__kilometrage :
+            raise ValueError(f"Impossible de réduire le kilométrage à {kilometrage}") # Exception (erreur maitrisée)
+        else:
+            self.__kilometrage = kilometrage
+
+
 
     # Redéfinir la fonction __str__() pour la classe Voiture
     def __str__(self) :

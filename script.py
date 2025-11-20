@@ -16,8 +16,13 @@ print(clio)
 print(clio.marque)
 print(clio.kilometrage)
 
-clio.set_kilometrage(50)
+clio.kilometrage=100
+print(clio.kilometrage)
+
+clio.kilometrage=150
 
 print(clio.kilometrage)
 
 print(clio.modele)
+
+print(clio)
