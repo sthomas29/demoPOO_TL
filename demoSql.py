@@ -23,28 +23,49 @@ def get_connection():
 
 def execute_query(query, params=()):
 
-    print (f"Type : {type(params)}")
+    #print (f"Type : {type(params)}")
 
     print (f"Exécution requête : {query} - {params}")
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute(query, params)
 
+    result = cursor.fetchall()
+    #print (f"Retour : {result}")
+
     conn.commit()
     conn.close()
+
+    return result
 
 # Drop == Supression de la table users si elle existe
 execute_query("DROP TABLE IF EXISTS users")
 
 # Création de la table users si elle n'existe pas
-execute_query("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT NOT NULL,age INTEGER)")
+execute_query("""CREATE TABLE IF NOT EXISTS users (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        name TEXT NOT NULL UNIQUE,
+                        age INTEGER
+                 )""")
 
 # C de CRUD (création d'un enregistrement dans la table)
+print("--- C de CRUD ---")
+
 execute_query("INSERT INTO users (name, age) VALUES (?,?)", ("Minnie", 90))
 execute_query("INSERT INTO users (name, age) VALUES (?,?)", ("Mickey", 95))
 execute_query("INSERT INTO users (name, age) VALUES (?,?)", ("Donald",85))
-
 execute_query("INSERT INTO users (name) VALUES (?)", ("Pluto",))
+execute_query("INSERT INTO users (name, age) VALUES (?, ?)", ("Picsou",85))
+execute_query("INSERT INTO users (name, age) VALUES (?, ?)", ("Picsou",85))
+
+# R de CRUD (Lecture depuis lune BDD
+print("--- R de CRUD ---")
+resultat = execute_query("SELECT * FROM users")
+
+for user in resultat:
+    print(f"{user[1]} - {user[2]} ({user[0]})")
+
+
 
 # ("Pluto") ==> Chaine de caractères, identique à "Pluto"
 # ("Pluto",) ==> Tuple
@@ -55,9 +76,6 @@ execute_query("INSERT INTO users (name) VALUES (?)", ("Pluto",))
 
 
 print("Fin script bdd")
-
-
-
 
 
 # Transaction
