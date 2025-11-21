@@ -56,15 +56,28 @@ execute_query("INSERT INTO users (name, age) VALUES (?,?)", ("Mickey", 95))
 execute_query("INSERT INTO users (name, age) VALUES (?,?)", ("Donald",85))
 execute_query("INSERT INTO users (name) VALUES (?)", ("Pluto",))
 execute_query("INSERT INTO users (name, age) VALUES (?, ?)", ("Picsou",85))
-execute_query("INSERT INTO users (name, age) VALUES (?, ?)", ("Picsou",85))
 
-# R de CRUD (Lecture depuis lune BDD
+# R de CRUD (Lecture depuis une BDD)
 print("--- R de CRUD ---")
 resultat = execute_query("SELECT * FROM users")
 
 for user in resultat:
     print(f"{user[1]} - {user[2]} ({user[0]})")
 
+# U de CRUD
+execute_query("UPDATE users SET age = ? WHERE name = ?", (97,"Mickey"))
+
+# R de CRUD (Lecture depuis une BDD)
+print("--- R de CRUD ---")
+resultat = execute_query("SELECT * FROM users WHERE name = ?", ("Mickey",))
+
+execute_query("UPDATE users SET age = ? WHERE name = ?", (50,"Pluto"))
+
+print("--- R de CRUD ---")
+resultat = execute_query("SELECT * FROM users")
+
+for user in resultat:
+    print(f"{user[1]} - {user[2]} ({user[0]})")
 
 
 # ("Pluto") ==> Chaine de caractères, identique à "Pluto"
