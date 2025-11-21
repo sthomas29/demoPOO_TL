@@ -1,7 +1,8 @@
+from models.Monospace import Monospace
 from models.Voiture import Voiture
 
 
-class Scenic(Voiture) :
+class Scenic(Monospace, Voiture) :
 
     # Constructeur de Scenic
     def __init__(self, marque, modele, option):

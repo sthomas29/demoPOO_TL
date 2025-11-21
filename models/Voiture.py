@@ -63,6 +63,10 @@ class Voiture (Vehicule) :
     def arreter(self):
         pass
 
+    def partir_en_vacances(self):
+        print("Partir en vacances en famille en VOITURE !")
+
+
     # Redéfinir la fonction __str__() pour la classe Voiture
     def __str__(self) :
         return str(f"Voiture : {self.__marque} - {self.__modele} - {self.__kilometrage}")

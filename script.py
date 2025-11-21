@@ -35,15 +35,14 @@ print(clio)
 
 scenic = Scenic("Renault", "Scenic", "Coffre de toit")
 
-
 print(type(scenic))
 
 print(scenic)
 #scenic.__str__()
 
-
 scenic.rouler(25)
 
 print(scenic)
-scenic.liste_options()
+#scenic.liste_options()
 
+scenic.partir_en_vacances()
