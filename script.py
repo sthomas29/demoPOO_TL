@@ -1,3 +1,5 @@
+from models.TarteAuxFraises import TarteAuxFraises
+from models.Vehicule import Vehicule
 from models.Voiture import Voiture
 
 entier = 40
@@ -28,5 +30,8 @@ print(clio)
 clio.rouler(200)
 print(clio)
 
-clio.rouler(-250)
+clio.rouler(250)
 print(clio)
+
+vehicule = Vehicule()
+

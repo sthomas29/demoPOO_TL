@@ -1,4 +1,6 @@
-class Voiture :
+from models.Vehicule import Vehicule
+
+class Voiture (Vehicule) :
 
     """
     self représente l'instance de voiture manipulée dans le script.py
