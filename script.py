@@ -39,6 +39,9 @@ scenic = Scenic("Renault", "Scenic", "Coffre de toit")
 print(type(scenic))
 
 print(scenic)
+#scenic.__str__()
+
+
 scenic.rouler(25)
 
 print(scenic)

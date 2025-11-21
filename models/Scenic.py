@@ -14,3 +14,10 @@ class Scenic(Voiture) :
 
     def liste_options(self):
         print(self.__option)
+
+    def rouler(self, kilometrage):
+        print ("Je roule avec un scenic et son coffre de toit")
+        super().rouler(kilometrage)
+
+    def __str__(self):
+        return f"Scenic - {super().__str__()} - {self.__option}"
