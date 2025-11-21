@@ -1,4 +1,4 @@
-from models.TarteAuxFraises import TarteAuxFraises
+from models.Scenic import Scenic
 from models.Vehicule import Vehicule
 from models.Voiture import Voiture
 
@@ -33,5 +33,14 @@ print(clio)
 clio.rouler(250)
 print(clio)
 
-vehicule = Vehicule()
+scenic = Scenic("Renault", "Scenic", "Coffre de toit")
+
+
+print(type(scenic))
+
+print(scenic)
+scenic.rouler(25)
+
+print(scenic)
+scenic.liste_options()
 
