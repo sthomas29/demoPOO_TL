@@ -32,7 +32,10 @@ def execute_query(query, params=()):
 
     result = cursor.fetchall()
     #print (f"Retour : {result}")
-
+    if result is not None:
+        for user in result:
+            print(f"{user[1]} - {user[2]} ({user[0]})")
+    print()
     conn.commit()
     conn.close()
 
@@ -61,23 +64,21 @@ execute_query("INSERT INTO users (name, age) VALUES (?, ?)", ("Picsou",85))
 print("--- R de CRUD ---")
 resultat = execute_query("SELECT * FROM users")
 
-for user in resultat:
-    print(f"{user[1]} - {user[2]} ({user[0]})")
+# for user in resultat:
+#     print(f"{user[1]} - {user[2]} ({user[0]})")
 
 # U de CRUD
 execute_query("UPDATE users SET age = ? WHERE name = ?", (97,"Mickey"))
 
 # R de CRUD (Lecture depuis une BDD)
 print("--- R de CRUD ---")
-resultat = execute_query("SELECT * FROM users WHERE name = ?", ("Mickey",))
+execute_query("SELECT * FROM users WHERE name = ?", ("Mickey",))
 
 execute_query("UPDATE users SET age = ? WHERE name = ?", (50,"Pluto"))
+execute_query("SELECT * FROM users")
 
-print("--- R de CRUD ---")
-resultat = execute_query("SELECT * FROM users")
-
-for user in resultat:
-    print(f"{user[1]} - {user[2]} ({user[0]})")
+# for user in resultat:
+#     print(f"{user[1]} - {user[2]} ({user[0]})")
 
 
 # ("Pluto") ==> Chaine de caractères, identique à "Pluto"
